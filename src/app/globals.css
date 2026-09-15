@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #0b0b0c;
+  --color-paper: #f3efe7;
+  --color-paper-2: #eae4d9;
+  --color-gold: #c9a227;
+  --color-gold-2: #e0c374;
+  --color-gray: #6f6a60;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-paper: var(--color-paper);
+  --color-paper-2: var(--color-paper-2);
+  --color-gold: var(--color-gold);
+  --color-gold-2: var(--color-gold-2);
+  --color-gray: var(--color-gray);
+  --font-literario: var(--font-literario), Georgia, serif;
+  --font-tecnico: var(--font-tecnico), system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-literario);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Tipos de letra restritos do corpo do artigo — ver src/lib/tiptap/fonte-mark.ts */
+.fonte-destaque {
+  font-family: var(--font-literario);
+  font-style: italic;
+}
+
+.fonte-tecnico {
+  font-family: var(--font-tecnico);
+  font-size: 0.9em;
+}
+
+/* Corpo de leitura (editor e pré-visualização) — prosa nunca sobre fundo escuro,
+   largura de leitura abaixo de 70 caracteres, controlada pelo elemento pai. */
+.corpo-leitura {
+  font-family: var(--font-literario);
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: var(--color-ink);
+}
+
+.corpo-leitura > * + * {
+  margin-top: 1.4rem;
+}
+
+.corpo-leitura h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.corpo-leitura h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.corpo-leitura blockquote {
+  border-left: 2px solid var(--color-gold);
+  padding-left: 1.2rem;
+  font-style: italic;
+  color: #2a2a28;
+}
+
+.corpo-leitura ul,
+.corpo-leitura ol {
+  padding-left: 1.4rem;
+}
+
+.corpo-leitura a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-gold);
+}
+
+.corpo-leitura figure[data-figura] {
+  margin: 0;
+}
+
+.corpo-leitura figure[data-figura] figcaption {
+  font-family: var(--font-tecnico);
+  font-size: 0.8rem;
+  color: var(--color-gray);
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+.corpo-leitura .video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.corpo-leitura .video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.corpo-leitura .video-ficheiro video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.corpo-leitura .video-legenda,
+.corpo-leitura .audio-legenda {
+  font-family: var(--font-tecnico);
+  font-size: 0.8rem;
+  color: var(--color-gray);
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+.corpo-leitura .audio-player audio {
+  width: 100%;
+}
+
+.corpo-leitura hr {
+  border: none;
+  border-top: 1px solid var(--color-gray);
+  opacity: 0.35;
+  margin: 2.5rem 0;
+}
+
+.corpo-leitura img {
+  max-width: 100%;
+  height: auto;
+}
+
+.corpo-leitura iframe {
+  max-width: 100%;
+}
+
+.corpo-leitura p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--color-gray);
+  opacity: 0.6;
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror {
+  outline: none;
+}
