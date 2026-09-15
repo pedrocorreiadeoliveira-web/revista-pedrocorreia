@@ -193,3 +193,5 @@ Se um dia adicionares ou removeres um administrador, faz as duas alterações.
 - `src/app/painel/` — o painel de administração (protegido por login).
 - `src/lib/crm/` — a ligação a um CRM externo, pensada para se poder trocar
   de fornecedor sem mexer no resto do código.
+
+<!-- deploy trigger -->
