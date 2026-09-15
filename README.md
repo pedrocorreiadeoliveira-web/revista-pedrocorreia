@@ -195,3 +195,5 @@ Se um dia adicionares ou removeres um administrador, faz as duas alterações.
   de fornecedor sem mexer no resto do código.
 
 <!-- deploy trigger -->
+
+<!-- redeploy trigger 2 -->
